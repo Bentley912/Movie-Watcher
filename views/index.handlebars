@@ -1,0 +1,38 @@
+<div class = container>
+    <div clas= col-lg-12 col-md-12 col-sm-12 col-xs-12>
+        <h1>Movies to Watch</h1>
+
+        <ul>
+            {{#each movies}}
+                <li>
+                    <p>{{this.id}}. {{this.movie}}</p>
+                </li> 
+                <form method= "POST" action="/delete?_method=DELETE">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <button type="submit">Delete Movie</button>
+                </form>      
+            {{/each}}
+            
+
+    </div>
+        </ul>
+        
+
+    <div class= col-lg-12 col-md-12 col-sm-12 col-xs-12>
+        <h2>Add A Movie</h2>
+        <form method= "POST" action="/create" >
+            <textarea name="movie" type="text" cols="30" rows="10"></textarea>
+            <button type="submit">Save a Movie</button>
+        </form>
+    </div>
+
+      <div class= col-lg-12 col-md-12 col-sm-12 col-xs-12>
+        <h2>Update A Movie</h2>
+        <form method= "POST" action="/update?_method=PUT">
+            <input type="text" name="id" placeholder="id">
+            <textarea name="movie" type="text" placeholder="What do you want to update this movei to?>">
+            </textarea>
+            <button type="submit">Update Movie</button>
+        </form>
+    </div>
+</div>
